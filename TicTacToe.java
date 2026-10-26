@@ -254,9 +254,8 @@ public class TicTacToe{
    } 
   
         
-   public static void main(String[] args){
-    //The sample game should result in the computer winning on the
-    //bottom row
+   //test games from class (java TicTacToe test)
+   public static void runTests(){
       TicTacToe game = new TicTacToe();
       System.out.println(sampleboard);
       System.out.println("Game Simulation 1");
@@ -312,12 +311,16 @@ public class TicTacToe{
       game.set(8);
       System.out.println(game); 
       System.out.println("Expected O " + game.gameOver());
-      
-      game.selectGame();
-      //game.playhard(); 
-      //game.playeasy();
-    
-   
+   }
+
+   public static void main(String[] args){
+      if (args.length > 0 && args[0].equals("test")) {
+         runTests();
+      } else {
+         TicTacToe game = new TicTacToe();
+         System.out.println(sampleboard);
+         game.selectGame();
+      }
    }
                                        
 }
