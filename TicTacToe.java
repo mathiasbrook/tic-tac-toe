@@ -190,7 +190,7 @@ public class TicTacToe{
          set(input);
          if (playerComputer == 'o') System.out.println("Player " + input + "\n" + this);
          over = gameOver(); //tests for game over
-      } else if (input < 1 || input > 9 && playerComputer == 'x') { //if player's input is not between 1 - 9
+      } else if ((input < 1 || input > 9) && playerComputer == 'x') { //if player's input is not between 1 - 9
          System.out.println("Your input is invalid. Please type a number from 1 - 9");
       }
       while (playerComputer == 'o' && over == 'N') { //makes a computer play loop to continue playing until a space has been sucessfully covered
@@ -226,7 +226,7 @@ public class TicTacToe{
          set(input);
          if (playerComputer == 'o') System.out.println("Player " + input + "\n" + this);
          over = gameOver(); //tests for game over
-      } else if (input < 1 || input > 9 && playerComputer == 'x') { //if player's input is not between 1 - 9
+      } else if ((input < 1 || input > 9) && playerComputer == 'x') { //if player's input is not between 1 - 9
          System.out.println("Your input is invalid. Please type a number from 1 - 9");
       }
       while (playerComputer == 'o' && over == 'N') { //makes a computer play loop to continue playing until a space has been sucessfully covered
