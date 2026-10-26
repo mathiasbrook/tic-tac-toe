@@ -6,6 +6,7 @@ public class TicTacToe{
    //set class variables here
    private char[][] board = new char[3][3];
    private char playerComputer;
+   private Scanner scan = new Scanner(System.in); //one Scanner for all input
    //You may add two additional class variables here
   
   
@@ -163,9 +164,8 @@ public class TicTacToe{
   //Reset the board and any class variables before starting 
   //each game.
    public void selectGame() {
-      Scanner gameSelect = new Scanner(System.in);
       System.out.println("Select your difficulty. Type 'easy' for easy mode and 'hard' for hard mode");
-      String difficulty = gameSelect.next(); //String scan for easy and hard
+      String difficulty = scan.next(); //String scan for easy and hard
       while (true) {
          if (difficulty.toLowerCase().equals("easy")) {
             playeasy();
@@ -175,12 +175,11 @@ public class TicTacToe{
             playhard();
             break;
          }
-         difficulty = gameSelect.next(); //waits for another string input if previous string was not "easy" or "hard"
+         difficulty = scan.next(); //waits for another string input if previous string was not "easy" or "hard"
       }
    }
    public void playeasy(){
     initialize(); //sets up the board
-    Scanner scan = new Scanner(System.in);
     System.out.println(this + "\nYour turn. Enter a number between 1-9");
     boolean nextPlayerTurn = true;
     char over = 'N';
@@ -216,7 +215,6 @@ public class TicTacToe{
    }
    public void playhard(){
     initialize(); //sets up the board
-    Scanner scan = new Scanner(System.in);
     System.out.println(this + "\nYour turn. Enter a number between 1-9");
     boolean nextPlayerTurn = true;
     char over = 'N';
