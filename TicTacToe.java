@@ -81,7 +81,7 @@ public class TicTacToe{
      playerComputer = 'x';
    }    
     
-   private void prevent(){ //used in hard mode to prevent the player from winning, diagonals have higher importance
+   private int prevent(){ //used in hard mode to prevent the player from winning, diagonals have higher importance
       int row = -1;
       int col = -1;
       //detects possible wins in diagonals
@@ -150,7 +150,9 @@ public class TicTacToe{
          if (row == 1) col+=3;
          else if (row == 2) col+=6;
          set(col);
+         return col;
       }
+      return 0;
    }
 
   
@@ -229,7 +231,8 @@ public class TicTacToe{
       }
       while (playerComputer == 'o' && over == 'N') { //makes a computer play loop to continue playing until a space has been sucessfully covered
          int random = (int)((Math.random()*9)+1); //generates a random number between 1 - 9
-         prevent(); //scans for any possible player wins to prevent
+         int block = prevent(); //scans for any possible player wins to prevent, returns the square it blocked or 0
+         if (block != 0) random = block; //so the right square gets printed
          if (playerComputer == 'o') set(random); //puts an o in a random space if no possible wins for player
          if (playerComputer == 'x') System.out.println("Computer " + random + "\n" + this);
          over = gameOver(); //tests for game over
