@@ -3,18 +3,13 @@ import java.util.Scanner;
 
 public class TicTacToe{
   
-   //set class variables here
    private char[][] board = new char[3][3];
    private char playerComputer;
    private Scanner scan = new Scanner(System.in); //one Scanner for all input
-   //You may add two additional class variables here
   
   
   //This is a sample board so the player knows how the numbers correspond to the spots in the board
-  //Constants for PLAYER and COMPUTER if you want to use them
    private static final String sampleboard =" 1 | 2 | 3\n-----------\n 4 | 5 | 6\n-----------\n 7 | 8 | 9";
-   private static final char PLAYER = 'X';
-   private static final char COMPUTER = 'O';
   
   //Default constructor.  
    public TicTacToe(){
@@ -162,9 +157,7 @@ public class TicTacToe{
      return " " + board[0][0] + " | " + board[0][1] + " | " + board[0][2] + "\n-----------\n "+ board[1][0] + " | " + board[1][1] + " | " + board[1][2] + "\n-----------\n " + board[2][0] + " | " + board[2][1] + " | " + board[2][2]; 
    }
  
-  //Plays the game. The computer plays randomly
-  //Reset the board and any class variables before starting 
-  //each game.
+  //Asks for easy or hard mode and starts that game
    public void selectGame() {
       System.out.println("Select your difficulty. Type 'easy' for easy mode and 'hard' for hard mode");
       String difficulty = scan.next(); //String scan for easy and hard
@@ -183,7 +176,6 @@ public class TicTacToe{
    public void playeasy(){
     initialize(); //sets up the board
     System.out.println(this + "\nYour turn. Enter a number between 1-9");
-    boolean nextPlayerTurn = true;
     char over = 'N';
     int input = scan.nextInt(); //scans for player number input
     while (true) {      
@@ -218,7 +210,6 @@ public class TicTacToe{
    public void playhard(){
     initialize(); //sets up the board
     System.out.println(this + "\nYour turn. Enter a number between 1-9");
-    boolean nextPlayerTurn = true;
     char over = 'N';
     int input = scan.nextInt(); //scans for player number input
     while (true) {      
